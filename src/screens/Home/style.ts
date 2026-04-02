@@ -39,6 +39,18 @@ const styles = StyleSheet.create({
   categories: {
     marginLeft: horizontalScale(24),
   },
+  donationItems: {
+    marginTop: verticalScale(20),
+    marginHorizontal: horizontalScale(24),
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    // gap: 16,
+  },
+  donationItem: {
+    maxWidth: '49%',
+    marginBottom: verticalScale(23),
+  },
 });
 
 export default styles;

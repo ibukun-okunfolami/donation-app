@@ -1,4 +1,4 @@
-import { Text, TextStyle } from 'react-native';
+import { Text, TextProps, TextStyle } from 'react-native';
 import React, { useMemo } from 'react';
 import styles from './style';
 import { horizontalScale, verticalScale } from '../../../styles/scaling';
@@ -12,6 +12,7 @@ const Heading = ({
   marginHorizontal,
   marginVertical,
   style,
+  ...props
 }: HeadingProps) => {
   const defaultStyles = useMemo(() => {
     return [
@@ -40,7 +41,11 @@ const Heading = ({
   ]);
 
   // return <Text style={[styles[variant], color && { color }]}>{children}</Text>;
-  return <Text style={defaultStyles}>{children}</Text>;
+  return (
+    <Text style={defaultStyles} {...props}>
+      {children}
+    </Text>
+  );
 };
 
 type HeadingProps = {
@@ -52,6 +57,6 @@ type HeadingProps = {
   marginHorizontal?: number;
   marginVertical?: number;
   style?: TextStyle | TextStyle[];
-};
+} & TextProps;
 
 export default Heading;

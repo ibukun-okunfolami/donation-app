@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './reducers/User';
+import userReducer from './reducers/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import { logger } from 'redux-logger';
-import categoryReducer from './reducers/Category';
+import categoryReducer from './reducers/category';
+import donationsReducer from './reducers/donations';
 
 const persistConfig = {
   key: 'root',
@@ -18,6 +19,7 @@ const store = configureStore({
   reducer: {
     user: persistedUserReducer,
     category: categoryReducer,
+    donations: donationsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

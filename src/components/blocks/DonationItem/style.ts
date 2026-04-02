@@ -3,7 +3,7 @@ import { horizontalScale, verticalScale } from '../../../styles/scaling';
 
 const styles = StyleSheet.create({
   itemImage: {
-    width: horizontalScale(155),
+    width: horizontalScale(140),
     height: verticalScale(170),
     backgroundColor: '#D9D9D9',
     borderRadius: horizontalScale(20),
