@@ -4,10 +4,13 @@ import styles from '../style';
 import { DonationItems } from '../../../redux/types';
 import DonationItem from '../../../components/blocks/DonationItem';
 import { useAppSelector } from '../../../hooks/useAppSelector';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { updateSelectedDonationId } from '../../../redux/reducers/donations';
 
-const DonationListing = () => {
+const DonationListing = ({ onClick }: DonationListingProps) => {
   const category = useAppSelector(state => state.category);
   const donations = useAppSelector(state => state.donations);
+  const dispatch = useAppDispatch();
 
   const [donationItems, setDonationItems] = useState<DonationItems[]>([]);
 
@@ -18,25 +21,37 @@ const DonationListing = () => {
     );
     setDonationItems(filteredDonations);
   }, [category.selectedCategoryId, donations.items]);
+
+  const handleDonationClick = (
+    donationItemId: number,
+    categoryName: string,
+  ) => {
+    dispatch(updateSelectedDonationId(donationItemId));
+    onClick(categoryName);
+  };
   return (
     <View style={styles.donationItems}>
       {donationItems.length ? (
-        donationItems.map((item, idx) => (
-          <View key={idx} style={styles.donationItem}>
-            <DonationItem
-              key={idx * Math.random()}
-              badgeTitle={
-                category.categories.filter(
-                  cat => cat.categoryId === category.selectedCategoryId,
-                )[0]?.name || 'Unknown'
-              }
-              donationTitle={item.name}
-              price={parseFloat(item.price)}
-              uri={item.image}
-              onPress={() => console.log(item.donationItemId)}
-            />
-          </View>
-        ))
+        donationItems.map((item, idx) => {
+          const categoryName =
+            category.categories.find(
+              cat => cat.categoryId === category.selectedCategoryId,
+            )?.name || 'Unknown';
+          return (
+            <View key={idx} style={styles.donationItem}>
+              <DonationItem
+                key={idx * Math.random()}
+                badgeTitle={categoryName}
+                donationTitle={item.name}
+                price={parseFloat(item.price)}
+                uri={item.image}
+                onPress={() =>
+                  handleDonationClick(item.donationItemId, categoryName)
+                }
+              />
+            </View>
+          );
+        })
       ) : (
         <Text>No donation items available.</Text>
       )}
@@ -44,4 +59,7 @@ const DonationListing = () => {
   );
 };
 
+type DonationListingProps = {
+  onClick: (categoryName: string) => void;
+};
 export default DonationListing;

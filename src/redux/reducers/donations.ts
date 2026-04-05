@@ -5,6 +5,7 @@ import { Donation, DonationItems } from '../types';
 const initialState: Donation = {
   items: donationData,
   selectedDonationId: null,
+  selectedDonation: null,
 };
 
 export const donationSlice = createSlice({
@@ -19,6 +20,9 @@ export const donationSlice = createSlice({
     },
     updateSelectedDonationId: (state, action: PayloadAction<number>) => {
       state.selectedDonationId = action.payload;
+      state.selectedDonation =
+        state.items.find(item => item.donationItemId === action.payload) ||
+        null;
     },
   },
 });

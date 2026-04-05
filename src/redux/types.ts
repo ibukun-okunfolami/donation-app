@@ -15,4 +15,5 @@ export type DonationItems = {
 export type Donation = {
   items: DonationItems[];
   selectedDonationId: number | null;
+  selectedDonation: DonationItems | null;
 };

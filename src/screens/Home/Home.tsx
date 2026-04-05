@@ -7,8 +7,10 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import SearchInput from '../../components/ui/SearchInput';
 import CategoriesList from './components/CategoriesList';
 import DonationListing from './components/DonationListing';
+import { MainStackNavigationProp } from '../../navigation/types';
+import { Routes } from '../../navigation/routes';
 
-const Home = () => {
+const Home: React.FC<HomeProps> = ({ navigation }) => {
   const user = useAppSelector(state => state.user);
 
   return (
@@ -37,10 +39,16 @@ const Home = () => {
           />
         </Pressable>
         <CategoriesList />
-        <DonationListing />
+        <DonationListing
+          onClick={categoryName => {
+            navigation.navigate(Routes.DONATION, { categoryName });
+          }}
+        />
       </ScrollView>
     </ScreenWrapper>
   );
 };
+
+type HomeProps = MainStackNavigationProp<'Home'>;
 
 export default Home;
