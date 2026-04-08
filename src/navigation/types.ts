@@ -8,6 +8,8 @@ type DonationScreenParams = {
 export type MainStackParamList = {
   Home: undefined;
   Donation: DonationScreenParams | undefined;
+  Login: undefined;
+  SignUp: undefined;
 };
 
 export type MainStackNavigationProp<T extends keyof MainStackParamList> = {
