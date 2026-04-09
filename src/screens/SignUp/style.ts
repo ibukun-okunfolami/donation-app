@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
   registerButton: {
     alignItems: 'center',
   },
+  backButton: {
+    marginLeft: horizontalScale(14),
+    marginTop: verticalScale(7),
+  },
 });
 
 export default styles;

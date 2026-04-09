@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyD4pEHM2zX4Qv2Jd8PTxRjxhQwMl9WMaoo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>412450718884</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.DonationApp</string>
+	<key>PROJECT_ID</key>
+	<string>donation-app-6a2b6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>donation-app-6a2b6.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:412450718884:ios:5364f0798693d62e065231</string>
+</dict>
+</plist>

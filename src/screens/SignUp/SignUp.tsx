@@ -7,6 +7,7 @@ import Heading from '../../components/ui/Heading';
 import Button from '../../components/ui/Button';
 import { MainStackNavigationProp } from '../../navigation/types';
 import { Routes } from '../../navigation/routes';
+import BackButton from '../../components/ui/BackButton';
 
 const SignUp = ({ navigation }: SignUpProps) => {
   const [formState, setFormState] = useState({
@@ -17,6 +18,11 @@ const SignUp = ({ navigation }: SignUpProps) => {
 
   return (
     <ScreenWrapper>
+      <BackButton
+        onPress={() => navigation.goBack()}
+        style={styles.backButton}
+      />
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.container}
