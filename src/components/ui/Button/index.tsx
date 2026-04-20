@@ -7,7 +7,7 @@ const Button = ({ title, disabled, style, ...pressableProps }: ButtonProps) => {
     return [styles.button, disabled && styles.disable, style];
   }, [disabled, style]);
   return (
-    <Pressable style={defaultStyles} {...pressableProps}>
+    <Pressable style={defaultStyles} disabled={disabled} {...pressableProps}>
       <Text style={styles.title}>{title}</Text>
     </Pressable>
   );

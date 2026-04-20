@@ -17,3 +17,10 @@ export type Donation = {
   selectedDonationId: number | null;
   selectedDonation: DonationItems | null;
 };
+
+export type User = {
+  displayName: string;
+  email: string;
+  uid: string;
+  token: string;
+};
