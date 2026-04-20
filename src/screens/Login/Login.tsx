@@ -29,7 +29,11 @@ const Login = ({ navigation }: LoginProps) => {
       setError('');
       setSuccess('You have successfully logged in!');
       dispatch(login(response.data));
-      navigation.navigate(Routes.HOME);
+      // navigation.navigate(Routes.HOME);
+      // navigation.reset({
+      //   index: 0,
+      //   routes: [{ name: Routes.HOME }],
+      // });
     } catch (err) {
       setSuccess('');
       const errorMessage = (err as Error).message;

@@ -3,7 +3,7 @@ import { User } from '../types';
 
 const initialState = {
   id: '',
-  name: 'Ibukun 👋',
+  name: '',
   email: '',
   isLoggedIn: false,
   profileImage:

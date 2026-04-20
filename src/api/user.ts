@@ -52,3 +52,11 @@ export const signInUser = async (email: string, password: string) => {
     throw new Error('An error occurred while signing in.');
   }
 };
+
+export const logOut = async () => {
+  try {
+    await auth().signOut();
+  } catch (error) {
+    throw new Error('An error occurred while logging out.');
+  }
+};
